@@ -5,8 +5,6 @@
 #include <iostream>
 #include "SubstitutionCipher.h"
 #include "ShiftCipher.h"
-
-
 #define MAX_MSGS_NUMBER 2 
 #define FIRST_SHIFT_LENGTH 5 
 #define SECOND_SHIFT_LENGTH 10 
@@ -21,15 +19,14 @@ class OperationsRoom {
 private:
 	int numMasseges;
 	bool melicious;
-	//decryptors:
-	SubstitutionCipher** decryptors;
-	void initByOther(const OperationsRoom& other);
-	void distract();
+	SubstitutionCipher decryptor1;
+	ShiftCipher<FIRST_SHIFT_LENGTH> decryptor2;
+	ShiftCipher<SECOND_SHIFT_LENGTH> decryptor3;
+	ShiftCipher<THIRD_SHIFT_LENGTH> decryptor4;
 public:
 	OperationsRoom();
-	OperationsRoom(const OperationsRoom& other);
-	const OperationsRoom& operator=(const OperationsRoom& other);
-	~OperationsRoom();
-	void getMsg(std::string encryptedMsg);
+	void getMsg(std::string msg);
 };
 #endif // !OPERATIONSROOM_H_
+
+
