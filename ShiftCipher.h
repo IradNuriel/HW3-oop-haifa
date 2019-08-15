@@ -12,7 +12,7 @@ private:
 	std::string makeCodeByKey() {
 		std::string code = "";
 		for (int i = 0; i < NUM_OF_CHARS_IN_ENGLISH; i++) {
-			char codeChar = ((i + KEY)%NUM_OF_CHARS_IN_ENGLISH) + 'a';
+			char codeChar = ((((i + KEY)/NUM_OF_CHARS_IN_ENGLISH) + NUM_OF_CHARS_IN_ENGLISH ) % NUM_OF_CHARS_IN_ENGLISH) + 'a';
 			code.push_back(codeChar);
 		}
 		return code;
